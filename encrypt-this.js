@@ -1,20 +1,22 @@
 var encryptThis = function (text) {
   // Implement me! :)
-
+  let encryptedArr = [];
+  let tempText = "";
   text = text.split(" ");
-  let encryptedText = [];
-    for (word of text) {
-        for (char in word) {
-            if (char == 0) {
-              
-          }
-      }
+  for (word of text) {
+    word = word.split("");
+    tempText = word[1];
+    word[1] = word[word.length - 1];
+    word[word.length - 1] = tempText;
+    word = word.join("");
 
-}
-  encryptedText = encryptedText.join(" ");
-  //   console.log(encryptedText);
+    tempText = [word.charCodeAt(0) + word.slice(1)] + "";
+    encryptedArr.push(tempText);
+  }
+
+return encryptedArr.join(' ')
 };
-// encryptThis("A");
+encryptThis("A");
 encryptThis("A wise old owl lived in an oak");
 // encryptThis("The more he saw the less he spoke");
 // encryptThis("The less he spoke the more he heard");
